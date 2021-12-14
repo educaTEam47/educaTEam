@@ -7,10 +7,21 @@ module.exports = gql`
         username:String!
         createdAt:String! 
     }
+
+    type Class{
+        id:ID!
+        className:String
+        professorID:String
+        classFaculty:String
+        createdAt:String
+    }
  
     type Query{
         getPosts: [Post]
-    }
+        getPost(postId:ID!):Post
+        getClasses:[Class]
+        getClass(classId:ID!):Class
+}
 
    type User{
        id:ID!
@@ -41,6 +52,12 @@ module.exports = gql`
     type Mutation{
         register(registerInput: RegisterInput): User!
         login(email:String!,password:String!) : User!
+        createPost(body:String!):Post!
+        deletePost(postId:ID!):String!
+        createClass(className:String!,classFaculty:String!):Class!
+        deleteClass(classId:ID!):String!
     }
+
+
 `;
 

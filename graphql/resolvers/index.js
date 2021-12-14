@@ -4,9 +4,13 @@ const classesResolvers = require('./classes');
 
 module.exports ={
     Query:{
-        ...postsResolvers.Query
+        ...postsResolvers.Query,
+        ...usersResolvers.Query,
+        ...classesResolvers.Query
     },
     Mutation:{
-        ...usersResolvers.Mutation
+        ...usersResolvers.Mutation,
+        ...classesResolvers.Mutation,
+        
     }
 }
